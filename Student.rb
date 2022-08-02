@@ -3,7 +3,7 @@ class Student < Person
     super
     @classroom = classroom
   end
-  
+
   def play_hooky
     "¯\(ツ)/¯"
   end
