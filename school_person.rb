@@ -9,6 +9,7 @@ class Person < Nameable
   attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
+    super
     @id = rand(10)
     @name = name
     @age = age
@@ -34,6 +35,7 @@ class Decorator < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
+    super
     @nameable = nameable
   end
 
@@ -57,7 +59,7 @@ end
 # Try the following code and check if you managed to decorate your person:
 person = Person.new(22, 'maximilianus')
 person.correct_name
-capitalizedPerson = CapitalizeDecorator.new(person)
-capitalizedPerson.correct_name
-capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
-capitalizedTrimmedPerson.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+capitalized_trimmed_person.correct_name
