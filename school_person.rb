@@ -6,7 +6,7 @@ end
 
 class Person < Nameable
   attr_accessor :name, :age
-  attr_reader :id
+  attr_reader :id, :rentals
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
@@ -55,11 +55,3 @@ class TrimmerDecorator < Decorator
     @nameable.correct_name[0, 10]
   end
 end
-
-# Try the following code and check if you managed to decorate your person:
-person = Person.new(22, 'maximilianus')
-person.correct_name
-capitalized_person = CapitalizeDecorator.new(person)
-capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-capitalized_trimmed_person.correct_name
