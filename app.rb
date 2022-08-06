@@ -1,3 +1,9 @@
+require './school_rental'
+require './school_person'
+require './school_student'
+require './school_teacher'
+require './school_book'
+
 class App
   def initialize
     @books = []
@@ -42,7 +48,7 @@ class App
 
   # 1
   def list_books
-    @people.each_with_index do |book, index|
+    @books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
       run
     end
@@ -52,6 +58,7 @@ class App
   def list_people
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      run
     end
   end
 
@@ -64,9 +71,10 @@ class App
       create_student
     when '2'
       create_teacher
+    else
+      puts 'error'
     end
     puts "Person created successfully!\n"
-    gets
     run
   end
 
@@ -86,9 +94,11 @@ class App
       permission = true
     when 'n'
       permission = false
+    else
+      puts 'error'
     end
 
-    student = Student.new(age, name, permission, nil)
+    student = Student.new(nil, age, name, permission)
     @people.push(student)
   end
 
@@ -103,7 +113,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, name, nil, specialization)
+    teacher = Teacher.new(age, name, specialization)
     @people.push(teacher)
   end
 
@@ -117,6 +127,7 @@ class App
 
     new_book = Book.new(title, author)
     @books.push(new_book)
+    puts 'Book added successfully'
 
     run
   end
@@ -124,39 +135,38 @@ class App
   # 5
   def create_rental
     puts 'Select a book from the following list by number: '
-    list_books
+    # list_books
+    @books.map.with_index do |book, index|
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+    end
     book_idx = gets.chomp
-
     puts 'Select a person from the following list by number: '
-    list_people
+    # list_people
+    @people.map.with_index do |person, index|
+      puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
     person_idx = gets.chomp
 
     print 'Date(YYYY/MM/DD): '
     rental_date = gets.chomp
 
-    rental = Rental.new(rental_date, @books[book_idx.to_i], @people[person_idx.to_i])
+    rental = Rental.new(rental_date, @people[person_idx.to_i], @books[book_idx.to_i])
     @rentals.push(rental)
     puts 'Rental added successfully!'
 
     run
   end
 
-  # 6
   def list_rental
-    obj = nil
     print "\nID of person: "
     person_id = gets.chomp
+    @rentals.each do |rental|
+      next unless rental.person.id == person_id.to_i
 
-    @people.each do |n|
-      obj = n if n.id == person_id.to_i
+      puts rental.book.title
+      puts rental.date
+      puts rental.person.name
     end
-
-    obj.rentals.each do |n|
-      puts n.date
-    end
-
-    puts
-    run
   end
 end
 
