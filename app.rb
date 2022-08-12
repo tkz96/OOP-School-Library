@@ -48,18 +48,26 @@ class App
 
   # 1
   def list_books
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-      run
+    if @books.empty?
+      puts 'Error: No books added!'
+    else
+      @books.each_with_index do |book, index|
+        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+      end
     end
+    run
   end
 
   # 2
   def list_people
-    @people.each_with_index do |person, index|
-      puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      run
+    if @people.empty?
+      puts 'Error: No people added'
+    else
+      @people.each_with_index do |person, index|
+        puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
+    run
   end
 
   # 3
@@ -163,16 +171,10 @@ class App
     @rentals.each do |rental|
       next unless rental.person.id == person_id.to_i
 
-      puts rental.book.title
-      puts rental.date
-      puts rental.person.name
+      puts "Title: #{rental.book.title}"
+      puts "Rental Date: #{rental.date}"
+      puts "Renter: #{rental.person.name}"
     end
+    run
   end
 end
-
-def main
-  app = App.new
-  app.run
-end
-
-main
