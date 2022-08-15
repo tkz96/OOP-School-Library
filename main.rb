@@ -1,6 +1,11 @@
-class Main
+require './app'
 
-  @app = App.new
+class Menu
+  app = App.new
+  loop do
+    show_menu
+    input(app)
+  end
 
   def show_menu
     puts "Welcome to School Library App!\n\n"
@@ -14,24 +19,22 @@ class Main
     puts "7 - Exit\n\n"
   end
 
-  def run
+  def input(app)
     show_menu
     option = gets.chomp
-
     case option
     when '1'
-      @app.list_books
-      App.new.list_books
+      app.list_books
     when '2'
-      App.new.list_people
+      app.list_people
     when '3'
-      App.new.create_person
+      app.create_person
     when '4'
-      App.new.create_book
+      app.create_book
     when '5'
-      App.new.create_rental
+      app.create_rental
     when '6'
-      App.new.list_rental
+      app.list_rental
     else
       puts 'Good-bye.'
       exit
@@ -39,5 +42,10 @@ class Main
   end
 end
 
-# entry point of the entire application
-Main.new.run
+def main
+  app = App.new
+
+  run
+
+  show_menu app
+end

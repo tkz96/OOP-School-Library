@@ -21,7 +21,6 @@ class App
         puts "#{index}) Title: #{book.title}, Author: #{book.author}"
       end
     end
-    Main.new.run
   end
 
   # 2
@@ -33,7 +32,6 @@ class App
         puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
-    Main.new.run
   end
 
   # 3
@@ -49,7 +47,6 @@ class App
       puts 'error'
     end
     puts "Person created successfully!\n"
-    Main.new.run
   end
 
   # 3 (1)
@@ -141,6 +138,5 @@ class App
       puts "Rental Date: #{rental.date}"
       puts "Renter: #{rental.person.name}"
     end
-    Main.new.run
   end
 end
