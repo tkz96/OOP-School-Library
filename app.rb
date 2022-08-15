@@ -3,47 +3,13 @@ require './school_person'
 require './school_student'
 require './school_teacher'
 require './school_book'
+require './main'
 
 class App
   def initialize
     @books = []
     @rentals = []
     @people = []
-  end
-
-  def show_menu
-    puts "Welcome to School Library App!\n\n"
-    puts 'Please choose an option by entering a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts "7 - Exit\n\n"
-  end
-
-  def run
-    show_menu
-    option = gets.chomp
-
-    case option
-    when '1'
-      list_books
-    when '2'
-      list_people
-    when '3'
-      create_person
-    when '4'
-      create_book
-    when '5'
-      create_rental
-    when '6'
-      list_rental
-    else
-      puts 'Good-bye.'
-      exit
-    end
   end
 
   # 1
@@ -55,7 +21,7 @@ class App
         puts "#{index}) Title: #{book.title}, Author: #{book.author}"
       end
     end
-    run
+    Main.new.run
   end
 
   # 2
@@ -67,7 +33,7 @@ class App
         puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
-    run
+    Main.new.run
   end
 
   # 3
@@ -83,7 +49,7 @@ class App
       puts 'error'
     end
     puts "Person created successfully!\n"
-    run
+    Main.new.run
   end
 
   # 3 (1)
@@ -137,7 +103,7 @@ class App
     @books.push(new_book)
     puts 'Book added successfully'
 
-    run
+    Main.new.run
   end
 
   # 5
@@ -162,7 +128,7 @@ class App
     @rentals.push(rental)
     puts 'Rental added successfully!'
 
-    run
+    Main.new.run
   end
 
   def list_rental
@@ -175,6 +141,6 @@ class App
       puts "Rental Date: #{rental.date}"
       puts "Renter: #{rental.person.name}"
     end
-    run
+    Main.new.run
   end
 end
