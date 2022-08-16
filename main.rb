@@ -23,8 +23,7 @@ def run(books, people, rentals)
   app = App.new
   loop do
     show_menu
-    option = gets.chomp
-    case option
+    case gets.chomp
     when '1'
       app.list_books(books)
     when '2'
@@ -38,7 +37,6 @@ def run(books, people, rentals)
     when '6'
       app.list_rental(rentals)
     else
-      puts 'Good-bye.'
       exit
     end
   end
