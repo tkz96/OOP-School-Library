@@ -1,9 +1,9 @@
 require 'json'
 require './app'
-require './store_data'
+require './write_data'
 
 class Start
-  include StoreData
+  include WriteData
 
   def initialize
     @app = App.new
@@ -36,7 +36,7 @@ class Start
     when '6'
       @app.list_rental
     else
-      store_data(@app.books)
+      write_data(@app.books, @app.people, @app.rentals)
       puts 'Good bye!'
       exit
     end

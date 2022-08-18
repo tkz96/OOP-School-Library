@@ -3,13 +3,15 @@ require './school_person'
 require './school_student'
 require './school_teacher'
 require './school_book'
-require './load_data'
+require './read_data'
 class App
-  include LoadData
+  include ReadData
+  attr_accessor :books, :people, :rentals
+
   def initialize
-    @books = load_books
-    @people = []
-    @rentals = []
+    @books = read_books
+    @people = read_people
+    @rentals = read_rentals(@people, @books)
   end
 
   # 1
