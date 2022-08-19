@@ -44,7 +44,7 @@ module WriteData
     rentals.each do |rental|
       json_rentals << {
         date: rental.date,
-        id: rental.people.id,
+        id: rental.person.id,
         title: rental.book.title,
         author: rental.book.author
       }
