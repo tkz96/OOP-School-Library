@@ -71,7 +71,7 @@ class App
       puts 'error'
     end
 
-    student = Student.new(nil, age, name, permission)
+    student = Student.new(nil, age, name, parent_permission: permission)
     @people.push(student)
   end
 
@@ -122,6 +122,7 @@ class App
     puts 'Rental added successfully!'
   end
 
+  # 6
   def list_rental
     print "\nID of person: "
     person_id = gets.chomp
