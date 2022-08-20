@@ -8,13 +8,20 @@ Clone the repo locally on your machine by typing the following commands in your 
 - `git clone https://github.com/tkz96/OOP-School-Library.git`
 - `cd OOP-School-Library`
 
-## Author
+## Authors
 
 👤 **Talha Zuberi**
 
 - GitHub: [@tkz96](https://github.com/tkz96)
 - Twitter: [@TKZ96](https://twitter.com/tkz96)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/talha-zuberi)
+
+ **Richard Friday**
+
+- GitHub: [@Richez003](https://github.com/Richez003)
+- Twitter: [@richardfriday14](https://twitter.com/richardfriday14)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/richard-friday-54980718a)
+
 
 ## 🤝 Contributing
 
