@@ -1,0 +1,3 @@
+describe 'Teacher' do
+
+end
