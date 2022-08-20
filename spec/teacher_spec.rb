@@ -2,7 +2,7 @@ require './school_teacher'
 
 describe Teacher do
   it 'is an instance of Teacher Class' do
-    teacher = Teacher.new( 65, 'Chidinma', 'Engineer')
+    teacher = Teacher.new(65, 'Chidinma', 'Engineer')
     expect(teacher).to be_instance_of(Teacher)
   end
 

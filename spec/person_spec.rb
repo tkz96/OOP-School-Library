@@ -1,6 +1,6 @@
 require './school_person'
 require './school_rental'
-require'./school_book'
+require './school_book'
 
 describe Person do
   it 'has a name' do
