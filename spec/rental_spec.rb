@@ -1,0 +1,3 @@
+describe 'Rental' do
+
+end
